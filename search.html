@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tìm kiếm bài hát trên SoundWave theo tên, ca sĩ, thể loại và năm phát hành. Bộ lọc nâng cao và sắp xếp thông minh.">
+  <meta name="author" content="Đinh Nhật Phong — ID1736755">
+  <meta name="theme-color" content="#08080e">
+  <meta property="og:title" content="Tìm kiếm bài hát — SoundWave">
+  <meta property="og:description" content="Tìm kiếm bài hát trên SoundWave theo tên, ca sĩ, thể loại và năm phát hành. Bộ lọc nâng cao và sắp xếp thông minh.">
+  <meta property="og:type" content="website">
+  <title>Tìm kiếm bài hát — SoundWave</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23a855f7'/%3E%3Cpath d='M5 9h2v6H5zm4-4h2v14H9zm4-1h2v16h-2zm4 4h2v8h-2zm4 3h2v2h-2z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261103">
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
+        <span>Sound<em>Wave</em></span>
+      </a>
+
+      <nav aria-label="Điều hướng chính">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="search.html" class="active" aria-current="page">Tìm kiếm</a></li>
+          <li><a href="artist-songs.html">Ca sĩ</a></li>
+          <li><a href="composer-songs.html">Nhạc sĩ</a></li>
+          <li><a href="album-songs.html">Album</a></li>
+          <li><a href="detail.html">Tin tức</a></li>
+          <li><a href="about.html">Về chúng tôi</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="searchTitle">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><span aria-current="page">Tìm kiếm</span></li>
+          </ol>
+        </nav>
+        <h1 id="searchTitle">Tìm kiếm bài hát</h1>
+        <p class="lead">Tra cứu theo tên bài hát, ca sĩ hoặc album. Kết hợp bộ lọc thể loại, năm phát hành và sắp xếp để tìm đúng bản nhạc bạn cần.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-label="Bộ lọc tìm kiếm">
+      <div class="container">
+        <form class="search-panel" id="searchForm" role="search" aria-label="Tìm kiếm bài hát nâng cao">
+          <div class="search-bar">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <label class="visually-hidden" for="songSearch" hidden>Từ khóa tìm kiếm</label>
+            <input type="search" id="songSearch" name="q" placeholder="Nhập tên bài hát, ca sĩ hoặc album..." aria-label="Từ khóa tìm kiếm bài hát" autocomplete="off">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+          </div>
+
+          <div class="search-filters">
+            <div>
+              <label class="field-label" for="genreFilter">Thể loại</label>
+              <div class="select-wrap">
+                <select id="genreFilter" name="genre">
+                  <option value="">Tất cả thể loại</option>
+                  <option value="Vinahouse">Vinahouse</option>
+                  <option value="Future Bass">Future Bass</option>
+                  <option value="EDM">EDM</option>
+                  <option value="Mandopop">Mandopop</option>
+                  <option value="Remix">Remix</option>
+                  <option value="Chill">Chill</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="field-label" for="yearFilter">Năm phát hành</label>
+              <div class="select-wrap">
+                <select id="yearFilter" name="year">
+                  <option value="">Tất cả các năm</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="field-label" for="sortFilter">Sắp xếp theo</label>
+              <div class="select-wrap">
+                <select id="sortFilter" name="sort">
+                  <option value="newest">Mới nhất</option>
+                  <option value="views">Nghe nhiều nhất</option>
+                  <option value="title">Tên A → Z</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn btn-ghost" type="reset">Xóa bộ lọc</button>
+          </div>
+        </form>
+
+        <div class="search-results-head">
+          <h2>Kết quả tìm kiếm</h2>
+          <span class="result-count" id="resultCount" aria-live="polite">Tìm thấy <strong>12</strong> bài hát phù hợp</span>
+        </div>
+
+        <div class="result-grid" id="resultGrid">
+          <article class="result-card" data-title="Out of the Mountain" data-artist="JAPANDEE" data-album="Neon District" data-genre="Remix" data-year="2026" data-views="1200000" data-date="20260912">
+            <img src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Out of the Mountain</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">JAPANDEE</a></p>
+              <div class="rc-meta">
+                <span class="chip">Remix</span>
+                <span class="chip">2026</span>
+                <span class="chip">1,2M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Mind the Pot" data-artist="Duzme" data-album="Paper Lanterns" data-genre="Future Bass" data-year="2025" data-views="860000" data-date="20250821">
+            <img src="images/cover-2.jpg" alt="Ảnh bìa Mind the Pot" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Mind the Pot</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Duzme</a></p>
+              <div class="rc-meta">
+                <span class="chip">Future Bass</span>
+                <span class="chip">2025</span>
+                <span class="chip">860K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Rain Love" data-artist="Rainie Yang" data-album="After the Rain" data-genre="Mandopop" data-year="2024" data-views="1500000" data-date="20240610">
+            <img src="images/cover-3.jpg" alt="Ảnh bìa Rain Love" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Rain Love</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Rainie Yang</a></p>
+              <div class="rc-meta">
+                <span class="chip">Mandopop</span>
+                <span class="chip">2024</span>
+                <span class="chip">1,5M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Night Drive" data-artist="KAZE" data-album="Voltage" data-genre="EDM" data-year="2024" data-views="540000" data-date="20241105">
+            <img src="images/cover-4.jpg" alt="Ảnh bìa Night Drive" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Night Drive</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">KAZE</a></p>
+              <div class="rc-meta">
+                <span class="chip">EDM</span>
+                <span class="chip">2024</span>
+                <span class="chip">540K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Neon District" data-artist="JAPANDEE" data-album="Neon District" data-genre="Vinahouse" data-year="2026" data-views="2100000" data-date="20260118">
+            <img src="images/cover-5.jpg" alt="Ảnh bìa Neon District" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Neon District</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">JAPANDEE</a></p>
+              <div class="rc-meta">
+                <span class="chip">Vinahouse</span>
+                <span class="chip">2026</span>
+                <span class="chip">2,1M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Jingwei" data-artist="JAPANDEE" data-album="Neon District" data-genre="EDM" data-year="2025" data-views="980000" data-date="20250912">
+            <img src="images/cover-6.jpg" alt="Ảnh bìa Jingwei" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Jingwei</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">JAPANDEE</a></p>
+              <div class="rc-meta">
+                <span class="chip">EDM</span>
+                <span class="chip">2025</span>
+                <span class="chip">980K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Paper Lanterns" data-artist="Duzme" data-album="Paper Lanterns" data-genre="Future Bass" data-year="2024" data-views="720000" data-date="20240715">
+            <img src="images/cover-7.jpg" alt="Ảnh bìa Paper Lanterns" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Paper Lanterns</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Duzme</a></p>
+              <div class="rc-meta">
+                <span class="chip">Future Bass</span>
+                <span class="chip">2024</span>
+                <span class="chip">720K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Afterglow" data-artist="Duzme" data-album="Paper Lanterns" data-genre="Chill" data-year="2025" data-views="1800000" data-date="20250301">
+            <img src="images/cover-8.jpg" alt="Ảnh bìa Afterglow" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Afterglow</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Duzme</a></p>
+              <div class="rc-meta">
+                <span class="chip">Chill</span>
+                <span class="chip">2025</span>
+                <span class="chip">1,8M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Voltage" data-artist="KAZE" data-album="Voltage" data-genre="EDM" data-year="2025" data-views="430000" data-date="20250822">
+            <img src="images/cover-4.jpg" alt="Ảnh bìa Voltage" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Voltage</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">KAZE</a></p>
+              <div class="rc-meta">
+                <span class="chip">EDM</span>
+                <span class="chip">2025</span>
+                <span class="chip">430K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Summer Rain" data-artist="Rainie Yang" data-album="After the Rain" data-genre="Mandopop" data-year="2023" data-views="1100000" data-date="20231201">
+            <img src="images/cover-3.jpg" alt="Ảnh bìa Summer Rain" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Summer Rain</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Rainie Yang</a></p>
+              <div class="rc-meta">
+                <span class="chip">Mandopop</span>
+                <span class="chip">2023</span>
+                <span class="chip">1,1M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="City Lights" data-artist="Rainie Yang" data-album="After the Rain" data-genre="Mandopop" data-year="2026" data-views="1300000" data-date="20260412">
+            <img src="images/cover-7.jpg" alt="Ảnh bìa City Lights" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">City Lights</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">Rainie Yang</a></p>
+              <div class="rc-meta">
+                <span class="chip">Mandopop</span>
+                <span class="chip">2026</span>
+                <span class="chip">1,3M lượt nghe</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card" data-title="Moonlit Run" data-artist="JAPANDEE" data-album="Neon District" data-genre="Vinahouse" data-year="2026" data-views="760000" data-date="20260214">
+            <img src="images/cover-5.jpg" alt="Ảnh bìa Moonlit Run" width="78" height="78" loading="lazy">
+            <div class="rc-body">
+              <h3><a href="song-detail.html">Moonlit Run</a></h3>
+              <p class="rc-artist"><a href="artist-songs.html">JAPANDEE</a></p>
+              <div class="rc-meta">
+                <span class="chip">Vinahouse</span>
+                <span class="chip">2026</span>
+                <span class="chip">760K lượt nghe</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <span class="empty-icon" aria-hidden="true">🎧</span>
+          <strong>Không tìm thấy bài hát phù hợp</strong>
+          <p>Thử từ khóa khác hoặc xóa bớt bộ lọc để xem toàn bộ kho nhạc.</p>
+        </div>
+
+        <div class="chip-row" style="margin-top:28px" aria-label="Gợi ý tìm kiếm">
+          <span class="chip">Gợi ý:</span>
+          <a class="chip" href="search.html">Vinahouse</a>
+          <a class="chip" href="search.html">Future Bass</a>
+          <a class="chip" href="search.html">EDM 2026</a>
+          <a class="chip" href="search.html">Mandopop</a>
+          <a class="chip" href="search.html">Chill</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
+            <span>Sound<em>Wave</em></span>
+          </a>
+          <p>Nền tảng âm nhạc dành cho giới trẻ — nơi nghệ sĩ độc lập gặp gỡ hàng triệu tâm hồn yêu nhạc.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="FB — SoundWave trên Facebook">FB</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="IG — SoundWave trên Instagram">IG</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YT — SoundWave trên YouTube">YT</a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TT — SoundWave trên TikTok">TT</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Khám phá</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="search.html">Tìm kiếm bài hát</a></li>
+            <li><a href="artist-songs.html">Nghệ sĩ nổi bật</a></li>
+            <li><a href="album-songs.html">Album mới</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Nghệ sĩ</h3>
+          <ul>
+            <li><a href="artist-songs.html">Bài hát theo ca sĩ</a></li>
+            <li><a href="composer-songs.html">Bài hát theo nhạc sĩ</a></li>
+            <li><a href="song-detail.html">Chi tiết ca khúc</a></li>
+            <li><a href="premium.html">Gói Premium</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Công ty</h3>
+          <ul>
+            <li><a href="about.html">Về chúng tôi</a></li>
+            <li><a href="contact.html">Liên hệ &amp; đóng góp</a></li>
+            <li><a href="policy-terms.html">Chính sách &amp; điều khoản</a></li>
+            <li><a href="detail.html">Tin tức âm nhạc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
+        <span>Made with <span class="heart">♥</span> for independent music.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
+    <audio id="audioEl" preload="metadata"></audio>
+    <div class="container player-inner">
+      <div class="player-track">
+        <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
+        <div class="player-meta">
+          <a class="player-title" href="song-detail.html">Out of the Mountain</a>
+          <span class="player-artist">JAPANDEE</span>
+        </div>
+        <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="player-center">
+        <div class="player-controls">
+          <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
+          <button class="p-play" id="playBtn" type="button" aria-label="Phát nhạc" aria-pressed="false">▶</button>
+          <button class="p-btn" type="button" data-skip="1" aria-label="Bài tiếp theo">⏭</button>
+        </div>
+        <div class="player-progress">
+          <span class="time" id="currentTime">0:00</span>
+          <input class="range" id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Tiến trình bài hát">
+          <span class="time" id="duration" title="Thời lượng bài hát">5:58</span>
+        </div>
+      </div>
+
+      <div class="player-extra">
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
+        <span aria-hidden="true" style="color:var(--muted);font-size:.85rem">🔊</span>
+        <input class="range volume-range" id="volume" type="range" min="0" max="100" value="80" aria-label="Âm lượng" style="--progress:80%">
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=20261103"></script>
+</body>
+</html>
