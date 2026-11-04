@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  DỰ ÁN SOUNDWAVE
-  Trang: Neon District — Album của JAPANDEE | SoundWave
+  SOUNDWAVE PROJECT
   File: album-songs.html
-  Mục đích: Album Neon District: ảnh bìa, thông tin phát hành và tracklist 8 bài.
+  Purpose: Neon District album: cover, release info, and 8-track list.
 
-  Cấu trúc trang:
-    1. HEAD       — meta, favicon, font, CSS
-    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
-    3. MAIN       — nội dung riêng của trang này
-    4. FOOTER     — liên kết, mạng xã hội, bản quyền
-    5. PLAYER     — thanh phát nhạc cố định ở đáy
-    6. SCRIPT     — js/main.js xử lý tương tác
+  Page structure:
+    1. HEAD       — meta, favicon, fonts, CSS
+    2. HEADER     — logo, navigation, Premium button, mobile menu
+    3. MAIN       — page-specific content
+    4. FOOTER     — links, social media, copyright
+    5. PLAYER     — fixed music player at the bottom
+    6. SCRIPT     — js/main.js handles interactions
 
-  Lưu ý: File này được sinh tự động từ tools/build.mjs.
-  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+  Note: This file is generated automatically from tools/build.mjs.
+  For permanent changes, edit tools/build.mjs and run:
       node tools/build.mjs
   ============================================================
 -->
 <html lang="vi">
 <head>
-  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
+  <!-- ===== 1. META / SEO / PAGE TITLE ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Album Neon District (2026) của JAPANDEE & Friends: 8 ca khúc, tổng thời lượng 32:03, tracklist đầy đủ và thông tin phát hành.">
@@ -40,24 +39,24 @@
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
-  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
+  <!-- ===== SKIP LINK: lets keyboard users jump straight to the content ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
   <!-- ============================================================
        HEADER / NAVBAR
-       - Logo SoundWave (bấm về trang chủ)
-       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
-       - Nút Premium + nút menu hamburger trên mobile
+       - SoundWave logo (click to return home)
+       - Main menu: Home, Search, Artists, Composers, Albums, News, About, Contact
+       - Premium button + mobile hamburger menu
        ============================================================ -->
   <header class="site-header">
     <div class="container nav">
-      <!-- Logo thương hiệu -->
+      <!-- Brand logo -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
         <span>Sound<em>Wave</em></span>
       </a>
 
-      <!-- Menu điều hướng chính -->
+      <!-- Main navigation menu -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang chủ</a></li>
@@ -71,7 +70,7 @@
         </ul>
       </nav>
 
-      <!-- Nút Premium và nút mở menu mobile -->
+      <!-- Premium button and mobile menu toggle -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -82,10 +81,10 @@
   </header>
 
   <!-- ============================================================
-       MAIN: nội dung riêng của trang album-songs.html
+       MAIN: page-specific content for album-songs.html
        ============================================================ -->
   <main id="main">
-<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, nghệ sĩ, ngày phát hành, tổng thời lượng ===== -->
+<!-- ===== ALBUM HEADER: large cover, title, artist, release date, total duration ===== -->
     <section class="profile-hero" aria-labelledby="albumTitle">
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -120,7 +119,7 @@
       </div>
     </section>
 
-    <!-- ===== TRACKLIST + THÔNG TIN ALBUM ===== -->
+    <!-- ===== TRACKLIST + ALBUM INFO ===== -->
     <section class="section" aria-labelledby="tracklistTitle">
       <div class="container content-grid">
         <div>
@@ -268,7 +267,7 @@
             </table>
           </div>
 
-          <!-- Mô tả nội dung album -->
+          <!-- Album description -->
           <section class="sidebar-card" style="margin-top:20px" aria-labelledby="aboutAlbumTitle">
             <h3 id="aboutAlbumTitle">Về album “Neon District”</h3>
             <p>“Neon District” là album tổng hợp đánh dấu chặng đường mới của JAPANDEE: tám track nối liền những làn điệu dân gian Việt – Hoa với nhịp Vinahouse, future bass và Mandopop. Album được hoàn thiện trong sáu tháng tại studio SoundWave, giữ lại tiếng phố đêm, tiếng đàn tranh và những đoạn field recording từ Hà Nội đến Sài Gòn.</p>
@@ -276,7 +275,7 @@
           </section>
         </div>
 
-        <!-- Sidebar: thông tin phát hành, single cùng nghệ sĩ, hồ sơ nghệ sĩ -->
+        <!-- Sidebar: release info, related singles, artist profile -->
         <aside class="sidebar" aria-label="Thông tin album">
           <section class="sidebar-card">
             <h3>Thông tin album</h3>
@@ -318,15 +317,15 @@
   </main>
 
   <!-- ============================================================
-       FOOTER DÙNG CHUNG
-       - Cột thương hiệu + mạng xã hội
-       - Các cột link: Khám phá, Nghệ sĩ, Công ty
-       - Dòng bản quyền + năm tự cập nhật bằng JS
+       SHARED FOOTER
+       - Brand column + social media
+       - Link columns: Discover, Artists, Company
+       - Copyright line + year updated by JS
        ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Cột 1: logo, mô tả, social -->
+        <!-- Column 1: logo, description, socials -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
@@ -341,7 +340,7 @@
           </div>
         </div>
 
-        <!-- Cột 2: khám phá -->
+        <!-- Column 2: discover -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -352,7 +351,7 @@
           </ul>
         </div>
 
-        <!-- Cột 3: nghệ sĩ -->
+        <!-- Column 3: artists -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -363,7 +362,7 @@
           </ul>
         </div>
 
-        <!-- Cột 4: công ty -->
+        <!-- Column 4: company -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -375,7 +374,7 @@
         </div>
       </div>
 
-      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
+      <!-- Bottom line: copyright, author, student ID -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -384,17 +383,17 @@
   </footer>
 
   <!-- ============================================================
-       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
-       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
-       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
-       - Bên phải: equalizer, danh sách phát, âm lượng
-       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       FIXED MUSIC PLAYER (position: fixed)
+       - Left: cover art, title, artist, like button
+       - Center: previous, play/pause, next, seek bar
+       - Right: equalizer, queue, volume
+       - The <audio> tag is hidden by CSS but plays real audio
        ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
-    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
+    <!-- Real audio element: JS changes src when a track is selected -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
-      <!-- Thông tin bài đang phát -->
+      <!-- Currently playing track info -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -404,7 +403,7 @@
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
-      <!-- Nút điều khiển và thanh tiến trình -->
+      <!-- Controls and progress bar -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -418,7 +417,7 @@
         </div>
       </div>
 
-      <!-- Âm lượng, equalizer, nút danh sách phát -->
+      <!-- Volume, equalizer, queue button -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -428,7 +427,7 @@
     </div>
   </div>
 
-  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
+  <!-- ===== JAVASCRIPT: mobile menu, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>

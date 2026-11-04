@@ -10,6 +10,10 @@
 >
 > 🎬 **Video demo:** [`video/SoundWave_Demo_DinhNhatPhong_ID1736755.mp4`](video/SoundWave_Demo_DinhNhatPhong_ID1736755.mp4)
 
+## Code annotations
+
+> For the purpose of future learning I have included many annotations throughout the HTML files.
+
 SoundWave là giao diện website nghe nhạc hiện đại dành cho giới trẻ, lấy cảm hứng từ sự kết hợp giữa Spotify và SoundCloud. Dự án được xây dựng hoàn toàn bằng **HTML5 Semantic + CSS3 + JavaScript thuần**, không dùng framework, tối ưu cho GitHub Pages.
 
 ## 1. Tính năng chính

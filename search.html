@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  DỰ ÁN SOUNDWAVE
-  Trang: Tìm kiếm bài hát — SoundWave
+  SOUNDWAVE PROJECT
   File: search.html
-  Mục đích: Tìm kiếm bài hát: từ khóa, bộ lọc thể loại/năm, sắp xếp và lưới kết quả.
+  Purpose: Song search: keyword, genre/year filters, sorting, and results grid.
 
-  Cấu trúc trang:
-    1. HEAD       — meta, favicon, font, CSS
-    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
-    3. MAIN       — nội dung riêng của trang này
-    4. FOOTER     — liên kết, mạng xã hội, bản quyền
-    5. PLAYER     — thanh phát nhạc cố định ở đáy
-    6. SCRIPT     — js/main.js xử lý tương tác
+  Page structure:
+    1. HEAD       — meta, favicon, fonts, CSS
+    2. HEADER     — logo, navigation, Premium button, mobile menu
+    3. MAIN       — page-specific content
+    4. FOOTER     — links, social media, copyright
+    5. PLAYER     — fixed music player at the bottom
+    6. SCRIPT     — js/main.js handles interactions
 
-  Lưu ý: File này được sinh tự động từ tools/build.mjs.
-  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+  Note: This file is generated automatically from tools/build.mjs.
+  For permanent changes, edit tools/build.mjs and run:
       node tools/build.mjs
   ============================================================
 -->
 <html lang="vi">
 <head>
-  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
+  <!-- ===== 1. META / SEO / PAGE TITLE ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tìm kiếm bài hát trên SoundWave theo tên, ca sĩ, thể loại và năm phát hành. Bộ lọc nâng cao và sắp xếp thông minh.">
@@ -40,24 +39,24 @@
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
-  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
+  <!-- ===== SKIP LINK: lets keyboard users jump straight to the content ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
   <!-- ============================================================
        HEADER / NAVBAR
-       - Logo SoundWave (bấm về trang chủ)
-       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
-       - Nút Premium + nút menu hamburger trên mobile
+       - SoundWave logo (click to return home)
+       - Main menu: Home, Search, Artists, Composers, Albums, News, About, Contact
+       - Premium button + mobile hamburger menu
        ============================================================ -->
   <header class="site-header">
     <div class="container nav">
-      <!-- Logo thương hiệu -->
+      <!-- Brand logo -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
         <span>Sound<em>Wave</em></span>
       </a>
 
-      <!-- Menu điều hướng chính -->
+      <!-- Main navigation menu -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang chủ</a></li>
@@ -71,7 +70,7 @@
         </ul>
       </nav>
 
-      <!-- Nút Premium và nút mở menu mobile -->
+      <!-- Premium button and mobile menu toggle -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -82,10 +81,10 @@
   </header>
 
   <!-- ============================================================
-       MAIN: nội dung riêng của trang search.html
+       MAIN: page-specific content for search.html
        ============================================================ -->
   <main id="main">
-<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
+<!-- ===== SEARCH PAGE TITLE ===== -->
     <section class="page-hero" aria-labelledby="searchTitle">
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -99,10 +98,10 @@
       </div>
     </section>
 
-    <!-- ===== KHU VỰC TÌM KIẾM: form lọc + danh sách kết quả ===== -->
+    <!-- ===== SEARCH AREA: filter form + results list ===== -->
     <section class="section section-tight" aria-label="Bộ lọc tìm kiếm">
       <div class="container">
-        <!-- Form tìm kiếm: ô từ khóa, thể loại, năm, sắp xếp, nút xóa -->
+        <!-- Search form: keyword, genre, year, sort, reset -->
         <form class="search-panel" id="searchForm" role="search" aria-label="Tìm kiếm bài hát nâng cao">
           <div class="search-bar">
             <span class="search-icon" aria-hidden="true">⌕</span>
@@ -155,13 +154,13 @@
           </div>
         </form>
 
-        <!-- Tiêu đề kết quả và số lượng bài tìm thấy (JS cập nhật) -->
+        <!-- Results heading + result count (updated by JS) -->
         <div class="search-results-head">
           <h2>Kết quả tìm kiếm</h2>
           <span class="result-count" id="resultCount" aria-live="polite">Tìm thấy <strong>12</strong> bài hát phù hợp</span>
         </div>
 
-        <!-- Lưới kết quả: mỗi card có data-* để JS lọc và sắp xếp -->
+        <!-- Results grid: each card has data-* attributes for JS filtering and sorting -->
         <div class="result-grid" id="resultGrid">
           <article class="result-card" data-title="Out of the Mountain" data-artist="JAPANDEE" data-album="Neon District" data-genre="Remix" data-year="2026" data-views="1200000" data-date="20260912">
             <img src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="78" height="78" loading="lazy">
@@ -315,7 +314,7 @@
           <p>Thử từ khóa khác hoặc xóa bớt bộ lọc để xem toàn bộ kho nhạc.</p>
         </div>
 
-        <!-- Gợi ý tìm kiếm nhanh -->
+        <!-- Quick search suggestions -->
         <div class="chip-row" style="margin-top:28px" aria-label="Gợi ý tìm kiếm">
           <span class="chip">Gợi ý:</span>
           <a class="chip" href="search.html">Vinahouse</a>
@@ -329,15 +328,15 @@
   </main>
 
   <!-- ============================================================
-       FOOTER DÙNG CHUNG
-       - Cột thương hiệu + mạng xã hội
-       - Các cột link: Khám phá, Nghệ sĩ, Công ty
-       - Dòng bản quyền + năm tự cập nhật bằng JS
+       SHARED FOOTER
+       - Brand column + social media
+       - Link columns: Discover, Artists, Company
+       - Copyright line + year updated by JS
        ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Cột 1: logo, mô tả, social -->
+        <!-- Column 1: logo, description, socials -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
@@ -352,7 +351,7 @@
           </div>
         </div>
 
-        <!-- Cột 2: khám phá -->
+        <!-- Column 2: discover -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -363,7 +362,7 @@
           </ul>
         </div>
 
-        <!-- Cột 3: nghệ sĩ -->
+        <!-- Column 3: artists -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -374,7 +373,7 @@
           </ul>
         </div>
 
-        <!-- Cột 4: công ty -->
+        <!-- Column 4: company -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -386,7 +385,7 @@
         </div>
       </div>
 
-      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
+      <!-- Bottom line: copyright, author, student ID -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -395,17 +394,17 @@
   </footer>
 
   <!-- ============================================================
-       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
-       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
-       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
-       - Bên phải: equalizer, danh sách phát, âm lượng
-       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       FIXED MUSIC PLAYER (position: fixed)
+       - Left: cover art, title, artist, like button
+       - Center: previous, play/pause, next, seek bar
+       - Right: equalizer, queue, volume
+       - The <audio> tag is hidden by CSS but plays real audio
        ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
-    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
+    <!-- Real audio element: JS changes src when a track is selected -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
-      <!-- Thông tin bài đang phát -->
+      <!-- Currently playing track info -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -415,7 +414,7 @@
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
-      <!-- Nút điều khiển và thanh tiến trình -->
+      <!-- Controls and progress bar -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -429,7 +428,7 @@
         </div>
       </div>
 
-      <!-- Âm lượng, equalizer, nút danh sách phát -->
+      <!-- Volume, equalizer, queue button -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -439,7 +438,7 @@
     </div>
   </div>
 
-  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
+  <!-- ===== JAVASCRIPT: mobile menu, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>

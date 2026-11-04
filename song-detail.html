@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  DỰ ÁN SOUNDWAVE
-  Trang: Out of the Mountain — JAPANDEE | SoundWave
+  SOUNDWAVE PROJECT
   File: song-detail.html
-  Mục đích: Chi tiết ca khúc: banner, thông tin, nút phát, lời bài hát và gợi ý.
+  Purpose: Song detail: banner, metadata, play button, lyrics, and suggestions.
 
-  Cấu trúc trang:
-    1. HEAD       — meta, favicon, font, CSS
-    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
-    3. MAIN       — nội dung riêng của trang này
-    4. FOOTER     — liên kết, mạng xã hội, bản quyền
-    5. PLAYER     — thanh phát nhạc cố định ở đáy
-    6. SCRIPT     — js/main.js xử lý tương tác
+  Page structure:
+    1. HEAD       — meta, favicon, fonts, CSS
+    2. HEADER     — logo, navigation, Premium button, mobile menu
+    3. MAIN       — page-specific content
+    4. FOOTER     — links, social media, copyright
+    5. PLAYER     — fixed music player at the bottom
+    6. SCRIPT     — js/main.js handles interactions
 
-  Lưu ý: File này được sinh tự động từ tools/build.mjs.
-  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+  Note: This file is generated automatically from tools/build.mjs.
+  For permanent changes, edit tools/build.mjs and run:
       node tools/build.mjs
   ============================================================
 -->
 <html lang="vi">
 <head>
-  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
+  <!-- ===== 1. META / SEO / PAGE TITLE ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Chi tiết ca khúc Out of the Mountain của JAPANDEE: lời bài hát, thông tin sáng tác, album Neon District và danh sách bài hát gợi ý.">
@@ -40,24 +39,24 @@
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
-  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
+  <!-- ===== SKIP LINK: lets keyboard users jump straight to the content ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
   <!-- ============================================================
        HEADER / NAVBAR
-       - Logo SoundWave (bấm về trang chủ)
-       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
-       - Nút Premium + nút menu hamburger trên mobile
+       - SoundWave logo (click to return home)
+       - Main menu: Home, Search, Artists, Composers, Albums, News, About, Contact
+       - Premium button + mobile hamburger menu
        ============================================================ -->
   <header class="site-header">
     <div class="container nav">
-      <!-- Logo thương hiệu -->
+      <!-- Brand logo -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
         <span>Sound<em>Wave</em></span>
       </a>
 
-      <!-- Menu điều hướng chính -->
+      <!-- Main navigation menu -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang chủ</a></li>
@@ -71,7 +70,7 @@
         </ul>
       </nav>
 
-      <!-- Nút Premium và nút mở menu mobile -->
+      <!-- Premium button and mobile menu toggle -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -82,10 +81,10 @@
   </header>
 
   <!-- ============================================================
-       MAIN: nội dung riêng của trang song-detail.html
+       MAIN: page-specific content for song-detail.html
        ============================================================ -->
   <main id="main">
-<!-- ===== BANNER BÀI HÁT: ảnh bìa, tiêu đề, ca sĩ, tác giả, album, nút phát ===== -->
+<!-- ===== SONG BANNER: cover, title, artist, composer, album, play button ===== -->
     <section class="song-hero" aria-labelledby="songTitle">
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -97,7 +96,7 @@
         </nav>
         <div class="song-hero-inner" style="margin-top:26px">
           <img class="song-cover" src="images/cover-1.jpg" alt="Ảnh bìa ca khúc Out of the Mountain" width="240" height="240">
-          <!-- Thông tin bài hát: tiêu đề, ca sĩ, tác giả, album -->
+          <!-- Song details: title, artist, composer, album -->
           <div class="song-hero-info">
             <span class="eyebrow"><span class="dot"></span>Single · Remix</span>
             <h1 id="songTitle">Out of the Mountain</h1>
@@ -109,7 +108,7 @@
               <span>Album: <a href="album-songs.html">Neon District</a></span>
             </p>
 
-            <!-- Các nút hành động: phát bài hát, lưu vào thư viện, chia sẻ -->
+            <!-- Action buttons: play, save to library, share -->
             <div class="song-actions">
               <button class="btn btn-primary btn-play" id="songPlayBtn" type="button" data-play data-title="Out of the Mountain" data-artist="JAPANDEE" data-cover="images/cover-1.jpg" data-duration="358">
                 <span aria-hidden="true">▶</span> Phát bài hát
@@ -118,7 +117,7 @@
               <button class="icon-btn" type="button" data-share aria-label="Chia sẻ bài hát" style="border:1px solid var(--line-strong);width:44px;height:44px;border-radius:50%">↗</button>
             </div>
 
-            <!-- Thông số: lượt nghe, ngày phát hành, thời lượng, chất lượng -->
+            <!-- Stats: plays, release date, duration, quality -->
             <dl class="meta-list">
               <div><dt>Lượt nghe</dt><dd>1,2M</dd></div>
               <div><dt>Phát hành</dt><dd>12/09/2026</dd></div>
@@ -130,10 +129,10 @@
       </div>
     </section>
 
-    <!-- ===== LỜI BÀI HÁT + SIDEBAR GỢI Ý ===== -->
+    <!-- ===== LYRICS + SUGGESTION SIDEBAR ===== -->
     <section class="section section-tight" aria-label="Lời bài hát và gợi ý">
       <div class="container content-grid">
-        <!-- Khối lời bài hát: tiêu đề, nút copy, nội dung lời -->
+        <!-- Lyrics block: heading, copy button, lyrics text -->
         <article class="lyrics-card" aria-labelledby="lyricsTitle">
           <div class="lyrics-head">
             <h2 id="lyricsTitle">Lời bài hát</h2>
@@ -185,7 +184,7 @@ Into the light...
           <p class="lyrics-note">Lời tiếng Anh nguyên bản do SoundWave biên soạn cho mục đích minh họa — không trích từ bản thu gốc. Vui lòng ghi nguồn khi chia sẻ.</p>
         </article>
 
-        <!-- Sidebar: bài hát gợi ý, album, thông tin tác giả -->
+        <!-- Sidebar: suggested songs, album, composer info -->
         <aside class="sidebar" aria-label="Thông tin bổ sung">
           <section class="panel" aria-labelledby="suggestTitle">
             <div class="panel-head">
@@ -237,15 +236,15 @@ Into the light...
   </main>
 
   <!-- ============================================================
-       FOOTER DÙNG CHUNG
-       - Cột thương hiệu + mạng xã hội
-       - Các cột link: Khám phá, Nghệ sĩ, Công ty
-       - Dòng bản quyền + năm tự cập nhật bằng JS
+       SHARED FOOTER
+       - Brand column + social media
+       - Link columns: Discover, Artists, Company
+       - Copyright line + year updated by JS
        ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Cột 1: logo, mô tả, social -->
+        <!-- Column 1: logo, description, socials -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
@@ -260,7 +259,7 @@ Into the light...
           </div>
         </div>
 
-        <!-- Cột 2: khám phá -->
+        <!-- Column 2: discover -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -271,7 +270,7 @@ Into the light...
           </ul>
         </div>
 
-        <!-- Cột 3: nghệ sĩ -->
+        <!-- Column 3: artists -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -282,7 +281,7 @@ Into the light...
           </ul>
         </div>
 
-        <!-- Cột 4: công ty -->
+        <!-- Column 4: company -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -294,7 +293,7 @@ Into the light...
         </div>
       </div>
 
-      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
+      <!-- Bottom line: copyright, author, student ID -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -303,17 +302,17 @@ Into the light...
   </footer>
 
   <!-- ============================================================
-       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
-       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
-       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
-       - Bên phải: equalizer, danh sách phát, âm lượng
-       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       FIXED MUSIC PLAYER (position: fixed)
+       - Left: cover art, title, artist, like button
+       - Center: previous, play/pause, next, seek bar
+       - Right: equalizer, queue, volume
+       - The <audio> tag is hidden by CSS but plays real audio
        ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
-    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
+    <!-- Real audio element: JS changes src when a track is selected -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
-      <!-- Thông tin bài đang phát -->
+      <!-- Currently playing track info -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -323,7 +322,7 @@ Into the light...
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
-      <!-- Nút điều khiển và thanh tiến trình -->
+      <!-- Controls and progress bar -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -337,7 +336,7 @@ Into the light...
         </div>
       </div>
 
-      <!-- Âm lượng, equalizer, nút danh sách phát -->
+      <!-- Volume, equalizer, queue button -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -347,7 +346,7 @@ Into the light...
     </div>
   </div>
 
-  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
+  <!-- ===== JAVASCRIPT: mobile menu, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>

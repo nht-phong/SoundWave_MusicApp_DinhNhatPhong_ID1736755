@@ -51,26 +51,26 @@ function header(file) {
 
   return `<!-- ============================================================
        HEADER / NAVBAR
-       - Logo SoundWave (bấm về trang chủ)
-       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
-       - Nút Premium + nút menu hamburger trên mobile
+       - SoundWave logo (click to return home)
+       - Main menu: Home, Search, Artists, Composers, Albums, News, About, Contact
+       - Premium button + mobile hamburger menu
        ============================================================ -->
   <header class="site-header">
     <div class="container nav">
-      <!-- Logo thương hiệu -->
+      <!-- Brand logo -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark">${logoSvg}</span>
         <span>Sound<em>Wave</em></span>
       </a>
 
-      <!-- Menu điều hướng chính -->
+      <!-- Main navigation menu -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           ${links}
         </ul>
       </nav>
 
-      <!-- Nút Premium và nút mở menu mobile -->
+      <!-- Premium button and mobile menu toggle -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -83,15 +83,15 @@ function header(file) {
 
 function footer() {
   return `<!-- ============================================================
-       FOOTER DÙNG CHUNG
-       - Cột thương hiệu + mạng xã hội
-       - Các cột link: Khám phá, Nghệ sĩ, Công ty
-       - Dòng bản quyền + năm tự cập nhật bằng JS
+       SHARED FOOTER
+       - Brand column + social media
+       - Link columns: Discover, Artists, Company
+       - Copyright line + year updated by JS
        ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Cột 1: logo, mô tả, social -->
+        <!-- Column 1: logo, description, socials -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark">${logoSvg}</span>
@@ -106,7 +106,7 @@ function footer() {
           </div>
         </div>
 
-        <!-- Cột 2: khám phá -->
+        <!-- Column 2: discover -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -117,7 +117,7 @@ function footer() {
           </ul>
         </div>
 
-        <!-- Cột 3: nghệ sĩ -->
+        <!-- Column 3: artists -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -128,7 +128,7 @@ function footer() {
           </ul>
         </div>
 
-        <!-- Cột 4: công ty -->
+        <!-- Column 4: company -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -140,7 +140,7 @@ function footer() {
         </div>
       </div>
 
-      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
+      <!-- Bottom line: copyright, author, student ID -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -151,17 +151,17 @@ function footer() {
 
 function player() {
   return `<!-- ============================================================
-       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
-       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
-       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
-       - Bên phải: equalizer, danh sách phát, âm lượng
-       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       FIXED MUSIC PLAYER (position: fixed)
+       - Left: cover art, title, artist, like button
+       - Center: previous, play/pause, next, seek bar
+       - Right: equalizer, queue, volume
+       - The <audio> tag is hidden by CSS but plays real audio
        ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
-    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
+    <!-- Real audio element: JS changes src when a track is selected -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
-      <!-- Thông tin bài đang phát -->
+      <!-- Currently playing track info -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -171,7 +171,7 @@ function player() {
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
-      <!-- Nút điều khiển và thanh tiến trình -->
+      <!-- Controls and progress bar -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -185,7 +185,7 @@ function player() {
         </div>
       </div>
 
-      <!-- Âm lượng, equalizer, nút danh sách phát -->
+      <!-- Volume, equalizer, queue button -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -197,44 +197,43 @@ function player() {
 }
 
 const pagePurpose = {
-  "index.html": "Trang chủ: hero, bảng xếp hạng, chuyên mục, album mới, banner Premium.",
-  "search.html": "Tìm kiếm bài hát: từ khóa, bộ lọc thể loại/năm, sắp xếp và lưới kết quả.",
-  "song-detail.html": "Chi tiết ca khúc: banner, thông tin, nút phát, lời bài hát và gợi ý.",
-  "artist-songs.html": "Hồ sơ nghệ sĩ JAPANDEE: tiểu sử, thống kê, bảng ca khúc, album.",
-  "composer-songs.html": "Hồ sơ producer Kai Nguyen: tiểu sử, gia tài sáng tác, giải thưởng.",
-  "album-songs.html": "Album Neon District: ảnh bìa, thông tin phát hành và tracklist 8 bài.",
-  "detail.html": "Bài phỏng vấn JAPANDEE: nội dung bài viết, tác giả và bài liên quan.",
-  "about.html": "Về SoundWave: sứ mệnh, giá trị, thống kê, đội ngũ và hành trình.",
-  "contact.html": "Liên hệ: form gửi lời nhắn, thông tin hỗ trợ và bản đồ studio.",
-  "policy-terms.html": "Chính sách và điều khoản: DMCA, bảo mật, dịch vụ, Premium.",
-  "premium.html": "Bảng giá Premium: 3 gói, so sánh quyền lợi, FAQ và CTA."
+  "index.html": "Home page: hero, charts, categories, new releases, Premium banner.",
+  "search.html": "Song search: keyword, genre/year filters, sorting, and results grid.",
+  "song-detail.html": "Song detail: banner, metadata, play button, lyrics, and suggestions.",
+  "artist-songs.html": "JAPANDEE artist profile: bio, stats, tracklist, and albums.",
+  "composer-songs.html": "Kai Nguyen producer profile: bio, song catalog, and awards.",
+  "album-songs.html": "Neon District album: cover, release info, and 8-track list.",
+  "detail.html": "JAPANDEE interview: article body, author, and related posts.",
+  "about.html": "About SoundWave: mission, values, stats, team, and journey.",
+  "contact.html": "Contact: message form, support details, and studio map.",
+  "policy-terms.html": "Policies and terms: DMCA, privacy, service, and Premium.",
+  "premium.html": "Premium pricing: 3 plans, feature comparison, FAQ, and CTA."
 };
 
 function layout(file, title, description, content) {
   return `<!DOCTYPE html>
 <!--
   ============================================================
-  DỰ ÁN SOUNDWAVE
-  Trang: ${title}
+  SOUNDWAVE PROJECT
   File: ${file}
-  Mục đích: ${pagePurpose[file] || description}
+  Purpose: ${pagePurpose[file] || description}
 
-  Cấu trúc trang:
-    1. HEAD       — meta, favicon, font, CSS
-    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
-    3. MAIN       — nội dung riêng của trang này
-    4. FOOTER     — liên kết, mạng xã hội, bản quyền
-    5. PLAYER     — thanh phát nhạc cố định ở đáy
-    6. SCRIPT     — js/main.js xử lý tương tác
+  Page structure:
+    1. HEAD       — meta, favicon, fonts, CSS
+    2. HEADER     — logo, navigation, Premium button, mobile menu
+    3. MAIN       — page-specific content
+    4. FOOTER     — links, social media, copyright
+    5. PLAYER     — fixed music player at the bottom
+    6. SCRIPT     — js/main.js handles interactions
 
-  Lưu ý: File này được sinh tự động từ tools/build.mjs.
-  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+  Note: This file is generated automatically from tools/build.mjs.
+  For permanent changes, edit tools/build.mjs and run:
       node tools/build.mjs
   ============================================================
 -->
 <html lang="vi">
 <head>
-  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
+  <!-- ===== 1. META / SEO / PAGE TITLE ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${description}">
@@ -253,13 +252,13 @@ function layout(file, title, description, content) {
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
-  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
+  <!-- ===== SKIP LINK: lets keyboard users jump straight to the content ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
   ${header(file)}
 
   <!-- ============================================================
-       MAIN: nội dung riêng của trang ${file}
+       MAIN: page-specific content for ${file}
        ============================================================ -->
   <main id="main">
 ${content}
@@ -269,7 +268,7 @@ ${content}
 
   ${player()}
 
-  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
+  <!-- ===== JAVASCRIPT: mobile menu, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>
@@ -349,7 +348,7 @@ function breadcrumb(items) {
 /* ---------------- 1. HOME ---------------- */
 const heroSong = byTitle("Out of the Mountain");
 
-const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ "đang phát" ===== -->
+const indexContent = `<!-- ===== HERO: main banner, headline, CTA, and "now playing" card ===== -->
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-bg">
         <img src="images/hero.jpg" alt="" width="1600" height="900">
@@ -395,7 +394,7 @@ const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ
       </div>
     </section>
 
-    <!-- ===== BẢNG XẾP HẠNG: top 5 bài hát + danh sách nghệ sĩ nổi bật ===== -->
+    <!-- ===== CHARTS: top 5 songs + featured artists ===== -->
     <section class="section" aria-labelledby="chartsTitle">
       <div class="container">
         <div class="section-head">
@@ -463,7 +462,7 @@ const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ
       </div>
     </section>
 
-    <!-- ===== CHUYÊN MỤC: 6 thẻ thể loại, bấm vào chuyển sang trang tìm kiếm ===== -->
+    <!-- ===== CATEGORIES: 6 genre cards, each links to the search page ===== -->
     <section class="section section-tight" aria-labelledby="catTitle">
       <div class="container">
         <div class="section-head">
@@ -515,7 +514,7 @@ const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ
       </div>
     </section>
 
-    <!-- ===== MỚI PHÁT HÀNH: 4 thẻ bài hát, nút play đưa bài lên player ===== -->
+    <!-- ===== NEW RELEASES: 4 song cards, play buttons load the player ===== -->
     <section class="section" aria-labelledby="newTitle">
       <div class="container">
         <div class="section-head">
@@ -534,7 +533,7 @@ const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ
       </div>
     </section>
 
-    <!-- ===== BANNER PREMIUM: CTA cuối trang chủ ===== -->
+    <!-- ===== PREMIUM BANNER: closing CTA on the home page ===== -->
     <section class="section section-tight" aria-labelledby="premiumTitle">
       <div class="container">
         <div class="mission">
@@ -553,7 +552,7 @@ const indexContent = `<!-- ===== HERO: banner chính, tiêu đề, CTA và thẻ
     </section>`;
 
 /* ---------------- 2. SEARCH ---------------- */
-const searchContent = `<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
+const searchContent = `<!-- ===== SEARCH PAGE TITLE ===== -->
     <section class="page-hero" aria-labelledby="searchTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Tìm kiếm", "search.html"]])}
@@ -562,10 +561,10 @@ const searchContent = `<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
       </div>
     </section>
 
-    <!-- ===== KHU VỰC TÌM KIẾM: form lọc + danh sách kết quả ===== -->
+    <!-- ===== SEARCH AREA: filter form + results list ===== -->
     <section class="section section-tight" aria-label="Bộ lọc tìm kiếm">
       <div class="container">
-        <!-- Form tìm kiếm: ô từ khóa, thể loại, năm, sắp xếp, nút xóa -->
+        <!-- Search form: keyword, genre, year, sort, reset -->
         <form class="search-panel" id="searchForm" role="search" aria-label="Tìm kiếm bài hát nâng cao">
           <div class="search-bar">
             <span class="search-icon" aria-hidden="true">⌕</span>
@@ -618,13 +617,13 @@ const searchContent = `<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
           </div>
         </form>
 
-        <!-- Tiêu đề kết quả và số lượng bài tìm thấy (JS cập nhật) -->
+        <!-- Results heading + result count (updated by JS) -->
         <div class="search-results-head">
           <h2>Kết quả tìm kiếm</h2>
           <span class="result-count" id="resultCount" aria-live="polite">Tìm thấy <strong>12</strong> bài hát phù hợp</span>
         </div>
 
-        <!-- Lưới kết quả: mỗi card có data-* để JS lọc và sắp xếp -->
+        <!-- Results grid: each card has data-* attributes for JS filtering and sorting -->
         <div class="result-grid" id="resultGrid">
           ${songs.map(resultCard).join("\n          ")}
         </div>
@@ -635,7 +634,7 @@ const searchContent = `<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
           <p>Thử từ khóa khác hoặc xóa bớt bộ lọc để xem toàn bộ kho nhạc.</p>
         </div>
 
-        <!-- Gợi ý tìm kiếm nhanh -->
+        <!-- Quick search suggestions -->
         <div class="chip-row" style="margin-top:28px" aria-label="Gợi ý tìm kiếm">
           <span class="chip">Gợi ý:</span>
           <a class="chip" href="search.html">Vinahouse</a>
@@ -650,13 +649,13 @@ const searchContent = `<!-- ===== TIÊU ĐỀ TRANG TÌM KIẾM ===== -->
 /* ---------------- 3. SONG DETAIL ---------------- */
 const song = byTitle("Out of the Mountain");
 
-const songContent = `<!-- ===== BANNER BÀI HÁT: ảnh bìa, tiêu đề, ca sĩ, tác giả, album, nút phát ===== -->
+const songContent = `<!-- ===== SONG BANNER: cover, title, artist, composer, album, play button ===== -->
     <section class="song-hero" aria-labelledby="songTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Bài hát", "search.html"], [song.title, "song-detail.html"]])}
         <div class="song-hero-inner" style="margin-top:26px">
           <img class="song-cover" src="images/${song.cover}" alt="Ảnh bìa ca khúc ${song.title}" width="240" height="240">
-          <!-- Thông tin bài hát: tiêu đề, ca sĩ, tác giả, album -->
+          <!-- Song details: title, artist, composer, album -->
           <div class="song-hero-info">
             <span class="eyebrow"><span class="dot"></span>Single · Remix</span>
             <h1 id="songTitle">${song.title}</h1>
@@ -668,7 +667,7 @@ const songContent = `<!-- ===== BANNER BÀI HÁT: ảnh bìa, tiêu đề, ca s�
               <span>Album: <a href="album-songs.html">${song.album}</a></span>
             </p>
 
-            <!-- Các nút hành động: phát bài hát, lưu vào thư viện, chia sẻ -->
+            <!-- Action buttons: play, save to library, share -->
             <div class="song-actions">
               <button class="btn btn-primary btn-play" id="songPlayBtn" type="button" data-play data-title="${song.title}" data-artist="${song.artist}" data-cover="images/${song.cover}" data-duration="${song.seconds}">
                 <span aria-hidden="true">▶</span> Phát bài hát
@@ -677,7 +676,7 @@ const songContent = `<!-- ===== BANNER BÀI HÁT: ảnh bìa, tiêu đề, ca s�
               <button class="icon-btn" type="button" data-share aria-label="Chia sẻ bài hát" style="border:1px solid var(--line-strong);width:44px;height:44px;border-radius:50%">↗</button>
             </div>
 
-            <!-- Thông số: lượt nghe, ngày phát hành, thời lượng, chất lượng -->
+            <!-- Stats: plays, release date, duration, quality -->
             <dl class="meta-list">
               <div><dt>Lượt nghe</dt><dd>${song.views}</dd></div>
               <div><dt>Phát hành</dt><dd>12/09/2026</dd></div>
@@ -689,10 +688,10 @@ const songContent = `<!-- ===== BANNER BÀI HÁT: ảnh bìa, tiêu đề, ca s�
       </div>
     </section>
 
-    <!-- ===== LỜI BÀI HÁT + SIDEBAR GỢI Ý ===== -->
+    <!-- ===== LYRICS + SUGGESTION SIDEBAR ===== -->
     <section class="section section-tight" aria-label="Lời bài hát và gợi ý">
       <div class="container content-grid">
-        <!-- Khối lời bài hát: tiêu đề, nút copy, nội dung lời -->
+        <!-- Lyrics block: heading, copy button, lyrics text -->
         <article class="lyrics-card" aria-labelledby="lyricsTitle">
           <div class="lyrics-head">
             <h2 id="lyricsTitle">Lời bài hát</h2>
@@ -744,7 +743,7 @@ Into the light...
           <p class="lyrics-note">Lời tiếng Anh nguyên bản do SoundWave biên soạn cho mục đích minh họa — không trích từ bản thu gốc. Vui lòng ghi nguồn khi chia sẻ.</p>
         </article>
 
-        <!-- Sidebar: bài hát gợi ý, album, thông tin tác giả -->
+        <!-- Sidebar: suggested songs, album, composer info -->
         <aside class="sidebar" aria-label="Thông tin bổ sung">
           <section class="panel" aria-labelledby="suggestTitle">
             <div class="panel-head">
@@ -804,7 +803,7 @@ const artistSongs = [
   ["Jingwei (Club Mix)", "Neon District", "320K", "3:33", "cover-6.jpg", 213, "EDM"]
 ];
 
-const artistContent = `<!-- ===== HỒ SƠ NGHỆ SĨ: avatar, tên, bio, follower, nút theo dõi ===== -->
+const artistContent = `<!-- ===== ARTIST PROFILE: avatar, name, bio, followers, follow button ===== -->
     <section class="profile-hero" aria-labelledby="artistName">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Ca sĩ", "artist-songs.html"], ["JAPANDEE", "artist-songs.html"]])}
@@ -829,7 +828,7 @@ const artistContent = `<!-- ===== HỒ SƠ NGHỆ SĨ: avatar, tên, bio, follow
       </div>
     </section>
 
-    <!-- ===== DANH SÁCH CA KHÚC CỦA NGHỆ SĨ + ALBUM/EP ===== -->
+    <!-- ===== ARTIST TRACKLIST + ALBUMS/EPs ===== -->
     <section class="section" aria-labelledby="artistSongsTitle">
       <div class="container content-grid">
         <div>
@@ -878,7 +877,7 @@ const artistContent = `<!-- ===== HỒ SƠ NGHỆ SĨ: avatar, tên, bio, follow
             </table>
           </div>
 
-          <!-- Album & EP của nghệ sĩ -->
+          <!-- Artist albums & EPs -->
           <section class="section section-tight" aria-labelledby="discoTitle" style="padding-bottom:0">
             <div class="section-head">
               <h2 id="discoTitle" style="font-size:1.2rem">Album &amp; EP</h2>
@@ -903,7 +902,7 @@ const artistContent = `<!-- ===== HỒ SƠ NGHỆ SĨ: avatar, tên, bio, follow
           </section>
         </div>
 
-        <!-- Sidebar: tiểu sử, thông tin, nghệ sĩ tương tự -->
+        <!-- Sidebar: biography, info, similar artists -->
         <aside class="sidebar" aria-label="Thông tin nghệ sĩ">
           <section class="sidebar-card">
             <h3>Tiểu sử</h3>
@@ -954,7 +953,7 @@ const composerWorks = [
   ["City Lights", "Rainie Yang", "2026", "After the Rain", "1,3M", "cover-7.jpg", 210]
 ];
 
-const composerContent = `<!-- ===== HỒ SƠ NHẠC SĨ / PRODUCER: avatar, bio, thống kê ===== -->
+const composerContent = `<!-- ===== COMPOSER / PRODUCER PROFILE: avatar, bio, stats ===== -->
     <section class="profile-hero" aria-labelledby="composerName">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Nhạc sĩ", "composer-songs.html"], ["Kai Nguyen", "composer-songs.html"]])}
@@ -979,7 +978,7 @@ const composerContent = `<!-- ===== HỒ SƠ NHẠC SĨ / PRODUCER: avatar, bio,
       </div>
     </section>
 
-    <!-- ===== GIA TÀI SÁNG TÁC: bảng tác phẩm, ca sĩ thể hiện, năm, album ===== -->
+    <!-- ===== SONG CATALOG: works, performing artist, year, album ===== -->
     <section class="section" aria-labelledby="worksTitle">
       <div class="container content-grid">
         <div>
@@ -1028,7 +1027,7 @@ const composerContent = `<!-- ===== HỒ SƠ NHẠC SĨ / PRODUCER: avatar, bio,
             </table>
           </div>
 
-          <!-- Thẻ mô tả phong cách sáng tác -->
+          <!-- Writing-style description card -->
           <section class="sidebar-card" style="margin-top:20px" aria-labelledby="styleTitle">
             <h3 id="styleTitle">Phong cách sáng tác</h3>
             <p>Kai Nguyen xây dựng bản phối như một lớp lang của ký ức: mở đầu bằng một mẫu dân ca hoặc câu hát quen, dẫn vào nhịp club rồi bung ra ở phần drop. Anh chú trọng chi tiết nhỏ — tiếng đàn tranh, hơi thở trước micro, tiếng phố đêm — để bản điện tử vẫn giữ được cảm xúc con người.</p>
@@ -1041,7 +1040,7 @@ const composerContent = `<!-- ===== HỒ SƠ NHẠC SĨ / PRODUCER: avatar, bio,
           </section>
         </div>
 
-        <!-- Sidebar: giải thưởng nổi bật, tác phẩm tiêu biểu -->
+        <!-- Sidebar: notable awards, signature works -->
         <aside class="sidebar" aria-label="Giải thưởng và thông tin">
           <section class="sidebar-card">
             <h3>Giải thưởng nổi bật</h3>
@@ -1086,7 +1085,7 @@ const albumTracks = [
   ["Moonlit Run", "JAPANDEE", "3:08", "cover-5.jpg", 188]
 ];
 
-const albumContent = `<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, nghệ sĩ, ngày phát hành, tổng thời lượng ===== -->
+const albumContent = `<!-- ===== ALBUM HEADER: large cover, title, artist, release date, total duration ===== -->
     <section class="profile-hero" aria-labelledby="albumTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Album", "album-songs.html"], ["Neon District", "album-songs.html"]])}
@@ -1115,7 +1114,7 @@ const albumContent = `<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, ngh
       </div>
     </section>
 
-    <!-- ===== TRACKLIST + THÔNG TIN ALBUM ===== -->
+    <!-- ===== TRACKLIST + ALBUM INFO ===== -->
     <section class="section" aria-labelledby="tracklistTitle">
       <div class="container content-grid">
         <div>
@@ -1162,7 +1161,7 @@ const albumContent = `<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, ngh
             </table>
           </div>
 
-          <!-- Mô tả nội dung album -->
+          <!-- Album description -->
           <section class="sidebar-card" style="margin-top:20px" aria-labelledby="aboutAlbumTitle">
             <h3 id="aboutAlbumTitle">Về album “Neon District”</h3>
             <p>“Neon District” là album tổng hợp đánh dấu chặng đường mới của JAPANDEE: tám track nối liền những làn điệu dân gian Việt – Hoa với nhịp Vinahouse, future bass và Mandopop. Album được hoàn thiện trong sáu tháng tại studio SoundWave, giữ lại tiếng phố đêm, tiếng đàn tranh và những đoạn field recording từ Hà Nội đến Sài Gòn.</p>
@@ -1170,7 +1169,7 @@ const albumContent = `<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, ngh
           </section>
         </div>
 
-        <!-- Sidebar: thông tin phát hành, single cùng nghệ sĩ, hồ sơ nghệ sĩ -->
+        <!-- Sidebar: release info, related singles, artist profile -->
         <aside class="sidebar" aria-label="Thông tin album">
           <section class="sidebar-card">
             <h3>Thông tin album</h3>
@@ -1211,9 +1210,9 @@ const albumContent = `<!-- ===== HEADER ALBUM: ảnh bìa lớn, tên album, ngh
     </section>`;
 
 /* ---------------- 7. ARTICLE ---------------- */
-const articleContent = `<!-- ===== BÀI VIẾT / TIN TỨC ===== -->
+const articleContent = `<!-- ===== ARTICLE / NEWS ===== -->
     <article>
-      <!-- Ảnh bìa lớn + tiêu đề + tác giả + ngày đăng -->
+      <!-- Large cover + title + author + publish date -->
       <header class="article-hero">
         <img src="images/article-1.jpg" alt="JAPANDEE trên sân khấu với ánh đèn tím" width="1600" height="900">
         <div class="container article-head">
@@ -1229,9 +1228,9 @@ const articleContent = `<!-- ===== BÀI VIẾT / TIN TỨC ===== -->
         </div>
       </header>
 
-      <!-- Bố cục 2 cột: nội dung bài viết bên trái, sidebar bên phải -->
+      <!-- Two columns: article body on the left, sidebar on the right -->
       <div class="container article-layout">
-        <!-- Nội dung chính của bài viết -->
+        <!-- Main article content -->
         <div class="article-body">
           <p>Có một đêm, JAPANDEE ngồi trong studio nhìn ra con phố đã lên đèn và nhận ra mình đã remix quá nhiều bản nhạc về nơi này — nhưng chưa một lần thật sự kể câu chuyện của chính mình. “Neon District” ra đời từ khoảnh khắc đó.</p>
 
@@ -1277,7 +1276,7 @@ const articleContent = `<!-- ===== BÀI VIẾT / TIN TỨC ===== -->
           </div>
         </div>
 
-        <!-- Sidebar: tác giả, bài viết liên quan, album -->
+        <!-- Sidebar: author, related articles, album -->
         <aside class="sidebar" aria-label="Thông tin bài viết">
           <section class="author-card">
             <div class="author-top">
@@ -1321,7 +1320,7 @@ const articleContent = `<!-- ===== BÀI VIẾT / TIN TỨC ===== -->
     </article>`;
 
 /* ---------------- 8. ABOUT ---------------- */
-const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ mệnh ===== -->
+const aboutContent = `<!-- ===== INTRO: title and mission description ===== -->
     <section class="page-hero" aria-labelledby="aboutTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Về chúng tôi", "about.html"]])}
@@ -1331,7 +1330,7 @@ const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ m
       </div>
     </section>
 
-    <!-- ===== SỨ MỆNH + CÁC CON SỐ THỐNG KÊ ===== -->
+    <!-- ===== MISSION + KEY STATS ===== -->
     <section class="section" aria-labelledby="missionTitle">
       <div class="container">
         <div class="mission">
@@ -1352,7 +1351,7 @@ const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ m
       </div>
     </section>
 
-    <!-- ===== GIÁ TRỊ CỐT LÕI: 3 thẻ ===== -->
+    <!-- ===== CORE VALUES: 3 cards ===== -->
     <section class="section section-tight" aria-labelledby="valuesTitle">
       <div class="container">
         <div class="section-head">
@@ -1381,7 +1380,7 @@ const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ m
       </div>
     </section>
 
-    <!-- ===== ĐỘI NGŨ PHÁT TRIỂN: 4 thẻ thành viên + social ===== -->
+    <!-- ===== TEAM: 4 member cards + social links ===== -->
     <section class="section" aria-labelledby="teamTitle">
       <div class="container">
         <div class="section-head">
@@ -1444,7 +1443,7 @@ const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ m
       </div>
     </section>
 
-    <!-- ===== HÀNH TRÌNH + TUYỂN DỤNG ===== -->
+    <!-- ===== JOURNEY + CAREERS ===== -->
     <section class="section section-tight" aria-labelledby="journeyTitle">
       <div class="container content-grid">
         <div class="sidebar-card">
@@ -1468,7 +1467,7 @@ const aboutContent = `<!-- ===== GIỚI THIỆU: tiêu đề và mô tả sứ m
     </section>`;
 
 /* ---------------- 9. CONTACT ---------------- */
-const contactContent = `<!-- ===== TIÊU ĐỀ TRANG LIÊN HỆ ===== -->
+const contactContent = `<!-- ===== CONTACT PAGE TITLE ===== -->
     <section class="page-hero" aria-labelledby="contactTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Liên hệ", "contact.html"]])}
@@ -1478,10 +1477,10 @@ const contactContent = `<!-- ===== TIÊU ĐỀ TRANG LIÊN HỆ ===== -->
       </div>
     </section>
 
-    <!-- ===== BỐ CỤC 2 CỘT: FORM LIÊN HỆ + THÔNG TIN HỖ TRỢ ===== -->
+    <!-- ===== TWO-COLUMN LAYOUT: CONTACT FORM + SUPPORT INFO ===== -->
     <section class="section" aria-label="Liên hệ SoundWave">
       <div class="container contact-layout">
-        <!-- Form gửi lời nhắn: họ tên, email, loại yêu cầu, nội dung -->
+        <!-- Message form: name, email, request type, message -->
         <div class="form-card">
           <h2>Gửi lời nhắn</h2>
           <p>Các trường có dấu <span style="color:var(--accent-2)">*</span> là bắt buộc.</p>
@@ -1533,7 +1532,7 @@ const contactContent = `<!-- ===== TIÊU ĐỀ TRANG LIÊN HỆ ===== -->
         </div>
 
         <div>
-          <!-- Thông tin liên hệ: hotline, email, địa chỉ, giờ làm việc -->
+          <!-- Contact details: hotline, email, address, hours -->
           <div class="contact-cards">
             <div class="contact-item">
               <span class="ci-icon" aria-hidden="true">📞</span>
@@ -1565,7 +1564,7 @@ const contactContent = `<!-- ===== TIÊU ĐỀ TRANG LIÊN HỆ ===== -->
             </div>
           </div>
 
-          <!-- Bản đồ Google Maps của studio -->
+          <!-- Studio Google Maps embed -->
           <div class="map-card" style="margin-top:16px">
             <iframe
               src="https://www.google.com/maps?q=285+Cach+Mang+Thang+Quan+10+Ho+Chi+Minh&output=embed"
@@ -1583,7 +1582,7 @@ const contactContent = `<!-- ===== TIÊU ĐỀ TRANG LIÊN HỆ ===== -->
     </section>`;
 
 /* ---------------- 10. POLICY ---------------- */
-const policyContent = `<!-- ===== TIÊU ĐỀ TRANG CHÍNH SÁCH ===== -->
+const policyContent = `<!-- ===== POLICY PAGE TITLE ===== -->
     <section class="page-hero" aria-labelledby="policyTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Chính sách & điều khoản", "policy-terms.html"]])}
@@ -1592,9 +1591,9 @@ const policyContent = `<!-- ===== TIÊU ĐỀ TRANG CHÍNH SÁCH ===== -->
       </div>
     </section>
 
-    <!-- ===== BỐ CỤC: MỤC LỤC BÊN TRÁI + NỘI DUNG CHÍNH SÁCH BÊN PHẢI ===== -->
+    <!-- ===== LAYOUT: TABLE OF CONTENTS LEFT + POLICY CONTENT RIGHT ===== -->
     <div class="container policy-layout">
-      <!-- Mục lục dính (sticky) để nhảy nhanh giữa các mục -->
+      <!-- Sticky table of contents for quick section jumps -->
       <aside class="toc" aria-label="Mục lục trang chính sách">
         <h3>Nội dung</h3>
         <ol>
@@ -1608,7 +1607,7 @@ const policyContent = `<!-- ===== TIÊU ĐỀ TRANG CHÍNH SÁCH ===== -->
         <a class="btn btn-ghost btn-block btn-sm" href="contact.html" style="margin-top:14px">Gửi yêu cầu hỗ trợ</a>
       </aside>
 
-      <!-- Nội dung chính sách: mỗi mục là một section có id để mục lục trỏ tới -->
+      <!-- Policy content: each section has an id for the table of contents -->
       <div class="policy-body">
         <span class="policy-updated">🕒 Cập nhật lần cuối: 01/10/2026 · Áp dụng cho toàn bộ người dùng SoundWave</span>
 
@@ -1717,7 +1716,7 @@ const policyContent = `<!-- ===== TIÊU ĐỀ TRANG CHÍNH SÁCH ===== -->
     </div>`;
 
 /* ---------------- 11. PREMIUM ---------------- */
-const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ===== -->
+const premiumContent = `<!-- ===== PREMIUM TITLE + MONTHLY/YEARLY TOGGLE ===== -->
     <section class="page-hero" aria-labelledby="premiumTitle">
       <div class="container">
         ${breadcrumb([["Trang chủ", "index.html"], ["Premium", "premium.html"]])}
@@ -1732,10 +1731,10 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
       </div>
     </section>
 
-    <!-- ===== BẢNG GIÁ: 3 gói Free / Premium / Family ===== -->
+    <!-- ===== PRICING: Free / Premium / Family plans ===== -->
     <section class="section" aria-label="Bảng giá">
       <div class="container">
-        <!-- 3 thẻ gói cước; thẻ Premium ở giữa được làm nổi bật -->
+        <!-- 3 plan cards; the middle Premium card is highlighted -->
         <div class="price-grid">
           <article class="price-card">
             <h2>Free</h2>
@@ -1795,7 +1794,7 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
       </div>
     </section>
 
-    <!-- ===== BẢNG SO SÁNH QUYỀN LỢI GIỮA CÁC GÓI ===== -->
+    <!-- ===== PLAN FEATURE COMPARISON TABLE ===== -->
     <section class="section section-tight" aria-labelledby="compareTitle">
       <div class="container">
         <div class="section-head">
@@ -1804,7 +1803,7 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
             <p>Mọi gói đều có thể nâng cấp hoặc hủy bất kỳ lúc nào.</p>
           </div>
         </div>
-        <!-- Bảng so sánh: cuộn ngang trên mobile -->
+        <!-- Comparison table: horizontal scroll on mobile -->
         <div class="compare-wrap">
           <table class="compare-table">
             <thead>
@@ -1829,7 +1828,7 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
       </div>
     </section>
 
-    <!-- ===== FAQ: dùng thẻ details/summary để mở/đóng ===== -->
+    <!-- ===== FAQ: uses details/summary for open/close ===== -->
     <section class="section section-tight" aria-labelledby="faqTitle">
       <div class="container">
         <div class="section-head" style="justify-content:center;text-align:center">
@@ -1838,7 +1837,7 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
             <p>Những điều người nghe hay hỏi trước khi nâng cấp.</p>
           </div>
         </div>
-        <!-- Danh sách câu hỏi thường gặp -->
+        <!-- Frequently asked questions -->
         <div class="faq">
           <details open>
             <summary>Tôi có thể hủy gói Premium bất kỳ lúc nào không?</summary>
@@ -1864,7 +1863,7 @@ const premiumContent = `<!-- ===== TIÊU ĐỀ PREMIUM + TOGGLE THÁNG/NĂM ====
       </div>
     </section>
 
-    <!-- ===== CTA CUỐI TRANG: kêu gọi dùng thử ===== -->
+    <!-- ===== CLOSING CTA: trial signup ===== -->
     <section class="section section-tight" aria-label="Kêu gọi nâng cấp">
       <div class="container">
         <div class="mission" style="text-align:center;grid-template-columns:1fr;padding:44px 30px">
