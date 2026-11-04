@@ -1,6 +1,27 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  DỰ ÁN SOUNDWAVE
+  Trang: JAPANDEE và hành trình trở về “Neon District” | SoundWave
+  File: detail.html
+  Mục đích: Bài phỏng vấn JAPANDEE: nội dung bài viết, tác giả và bài liên quan.
+
+  Cấu trúc trang:
+    1. HEAD       — meta, favicon, font, CSS
+    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
+    3. MAIN       — nội dung riêng của trang này
+    4. FOOTER     — liên kết, mạng xã hội, bản quyền
+    5. PLAYER     — thanh phát nhạc cố định ở đáy
+    6. SCRIPT     — js/main.js xử lý tương tác
+
+  Lưu ý: File này được sinh tự động từ tools/build.mjs.
+  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+      node tools/build.mjs
+  ============================================================
+-->
 <html lang="vi">
 <head>
+  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bài phỏng vấn chuyên sâu với JAPANDEE về album Neon District, quá trình sản xuất và sự kết hợp cùng Duzme, Rainie Yang.">
@@ -10,6 +31,8 @@
   <meta property="og:description" content="Bài phỏng vấn chuyên sâu với JAPANDEE về album Neon District, quá trình sản xuất và sự kết hợp cùng Duzme, Rainie Yang.">
   <meta property="og:type" content="website">
   <title>JAPANDEE và hành trình trở về “Neon District” | SoundWave</title>
+
+  <!-- ===== 2. FAVICON, GOOGLE FONTS, CSS ===== -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23a855f7'/%3E%3Cpath d='M5 9h2v6H5zm4-4h2v14H9zm4-1h2v16h-2zm4 4h2v8h-2zm4 3h2v2h-2z' fill='white'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,15 +40,24 @@
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
+  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
+  <!-- ============================================================
+       HEADER / NAVBAR
+       - Logo SoundWave (bấm về trang chủ)
+       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
+       - Nút Premium + nút menu hamburger trên mobile
+       ============================================================ -->
   <header class="site-header">
     <div class="container nav">
+      <!-- Logo thương hiệu -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
         <span>Sound<em>Wave</em></span>
       </a>
 
+      <!-- Menu điều hướng chính -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang chủ</a></li>
@@ -39,6 +71,7 @@
         </ul>
       </nav>
 
+      <!-- Nút Premium và nút mở menu mobile -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -48,8 +81,13 @@
     </div>
   </header>
 
+  <!-- ============================================================
+       MAIN: nội dung riêng của trang detail.html
+       ============================================================ -->
   <main id="main">
-<article>
+<!-- ===== BÀI VIẾT / TIN TỨC ===== -->
+    <article>
+      <!-- Ảnh bìa lớn + tiêu đề + tác giả + ngày đăng -->
       <header class="article-hero">
         <img src="images/article-1.jpg" alt="JAPANDEE trên sân khấu với ánh đèn tím" width="1600" height="900">
         <div class="container article-head">
@@ -71,7 +109,9 @@
         </div>
       </header>
 
+      <!-- Bố cục 2 cột: nội dung bài viết bên trái, sidebar bên phải -->
       <div class="container article-layout">
+        <!-- Nội dung chính của bài viết -->
         <div class="article-body">
           <p>Có một đêm, JAPANDEE ngồi trong studio nhìn ra con phố đã lên đèn và nhận ra mình đã remix quá nhiều bản nhạc về nơi này — nhưng chưa một lần thật sự kể câu chuyện của chính mình. “Neon District” ra đời từ khoảnh khắc đó.</p>
 
@@ -117,6 +157,7 @@
           </div>
         </div>
 
+        <!-- Sidebar: tác giả, bài viết liên quan, album -->
         <aside class="sidebar" aria-label="Thông tin bài viết">
           <section class="author-card">
             <div class="author-top">
@@ -160,9 +201,16 @@
     </article>
   </main>
 
+  <!-- ============================================================
+       FOOTER DÙNG CHUNG
+       - Cột thương hiệu + mạng xã hội
+       - Các cột link: Khám phá, Nghệ sĩ, Công ty
+       - Dòng bản quyền + năm tự cập nhật bằng JS
+       ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
+        <!-- Cột 1: logo, mô tả, social -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
@@ -177,6 +225,7 @@
           </div>
         </div>
 
+        <!-- Cột 2: khám phá -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -187,6 +236,7 @@
           </ul>
         </div>
 
+        <!-- Cột 3: nghệ sĩ -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -197,6 +247,7 @@
           </ul>
         </div>
 
+        <!-- Cột 4: công ty -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -208,6 +259,7 @@
         </div>
       </div>
 
+      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -215,9 +267,18 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
+       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
+       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
+       - Bên phải: equalizer, danh sách phát, âm lượng
+       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
+    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
+      <!-- Thông tin bài đang phát -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -227,6 +288,7 @@
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
+      <!-- Nút điều khiển và thanh tiến trình -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -240,6 +302,7 @@
         </div>
       </div>
 
+      <!-- Âm lượng, equalizer, nút danh sách phát -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -249,6 +312,7 @@
     </div>
   </div>
 
+  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>

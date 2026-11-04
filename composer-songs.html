@@ -1,6 +1,27 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  DỰ ÁN SOUNDWAVE
+  Trang: Kai Nguyen — Nhạc sĩ | SoundWave
+  File: composer-songs.html
+  Mục đích: Hồ sơ producer Kai Nguyen: tiểu sử, gia tài sáng tác, giải thưởng.
+
+  Cấu trúc trang:
+    1. HEAD       — meta, favicon, font, CSS
+    2. HEADER     — logo, menu điều hướng, nút Premium, menu mobile
+    3. MAIN       — nội dung riêng của trang này
+    4. FOOTER     — liên kết, mạng xã hội, bản quyền
+    5. PLAYER     — thanh phát nhạc cố định ở đáy
+    6. SCRIPT     — js/main.js xử lý tương tác
+
+  Lưu ý: File này được sinh tự động từ tools/build.mjs.
+  Muốn sửa nội dung lâu dài, hãy sửa tools/build.mjs rồi chạy:
+      node tools/build.mjs
+  ============================================================
+-->
 <html lang="vi">
 <head>
+  <!-- ===== 1. META / SEO / TIÊU ĐỀ TRANG ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Gia tài sáng tác của producer Kai Nguyen: các tác phẩm tiêu biểu, nghệ sĩ thể hiện và giải thưởng âm nhạc nổi bật.">
@@ -10,6 +31,8 @@
   <meta property="og:description" content="Gia tài sáng tác của producer Kai Nguyen: các tác phẩm tiêu biểu, nghệ sĩ thể hiện và giải thưởng âm nhạc nổi bật.">
   <meta property="og:type" content="website">
   <title>Kai Nguyen — Nhạc sĩ | SoundWave</title>
+
+  <!-- ===== 2. FAVICON, GOOGLE FONTS, CSS ===== -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23a855f7'/%3E%3Cpath d='M5 9h2v6H5zm4-4h2v14H9zm4-1h2v16h-2zm4 4h2v8h-2zm4 3h2v2h-2z' fill='white'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,15 +40,24 @@
   <link rel="stylesheet" href="css/style.css?v=20261103">
 </head>
 <body>
+  <!-- ===== SKIP LINK: giúp người dùng bàn phím nhảy thẳng tới nội dung ===== -->
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
 
+  <!-- ============================================================
+       HEADER / NAVBAR
+       - Logo SoundWave (bấm về trang chủ)
+       - Menu chính: Trang chủ, Tìm kiếm, Ca sĩ, Nhạc sĩ, Album, Tin tức, Về chúng tôi, Liên hệ
+       - Nút Premium + nút menu hamburger trên mobile
+       ============================================================ -->
   <header class="site-header">
     <div class="container nav">
+      <!-- Logo thương hiệu -->
       <a class="brand" href="index.html" aria-label="SoundWave — Trang chủ">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
         <span>Sound<em>Wave</em></span>
       </a>
 
+      <!-- Menu điều hướng chính -->
       <nav aria-label="Điều hướng chính">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang chủ</a></li>
@@ -39,6 +71,7 @@
         </ul>
       </nav>
 
+      <!-- Nút Premium và nút mở menu mobile -->
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="navLinks" aria-expanded="false">
@@ -48,8 +81,12 @@
     </div>
   </header>
 
+  <!-- ============================================================
+       MAIN: nội dung riêng của trang composer-songs.html
+       ============================================================ -->
   <main id="main">
-<section class="profile-hero" aria-labelledby="composerName">
+<!-- ===== HỒ SƠ NHẠC SĨ / PRODUCER: avatar, bio, thống kê ===== -->
+    <section class="profile-hero" aria-labelledby="composerName">
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb">
@@ -79,6 +116,7 @@
       </div>
     </section>
 
+    <!-- ===== GIA TÀI SÁNG TÁC: bảng tác phẩm, ca sĩ thể hiện, năm, album ===== -->
     <section class="section" aria-labelledby="worksTitle">
       <div class="container content-grid">
         <div>
@@ -219,6 +257,7 @@
             </table>
           </div>
 
+          <!-- Thẻ mô tả phong cách sáng tác -->
           <section class="sidebar-card" style="margin-top:20px" aria-labelledby="styleTitle">
             <h3 id="styleTitle">Phong cách sáng tác</h3>
             <p>Kai Nguyen xây dựng bản phối như một lớp lang của ký ức: mở đầu bằng một mẫu dân ca hoặc câu hát quen, dẫn vào nhịp club rồi bung ra ở phần drop. Anh chú trọng chi tiết nhỏ — tiếng đàn tranh, hơi thở trước micro, tiếng phố đêm — để bản điện tử vẫn giữ được cảm xúc con người.</p>
@@ -231,6 +270,7 @@
           </section>
         </div>
 
+        <!-- Sidebar: giải thưởng nổi bật, tác phẩm tiêu biểu -->
         <aside class="sidebar" aria-label="Giải thưởng và thông tin">
           <section class="sidebar-card">
             <h3>Giải thưởng nổi bật</h3>
@@ -264,9 +304,16 @@
     </section>
   </main>
 
+  <!-- ============================================================
+       FOOTER DÙNG CHUNG
+       - Cột thương hiệu + mạng xã hội
+       - Các cột link: Khám phá, Nghệ sĩ, Công ty
+       - Dòng bản quyền + năm tự cập nhật bằng JS
+       ============================================================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
+        <!-- Cột 1: logo, mô tả, social -->
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h2v6H4V9zm4-4h2v14H8V5zm4-1h2v16h-2V4zm4 4h2v8h-2V8zm4 3h2v2h-2v-2z"/></svg></span>
@@ -281,6 +328,7 @@
           </div>
         </div>
 
+        <!-- Cột 2: khám phá -->
         <div class="footer-col">
           <h3>Khám phá</h3>
           <ul>
@@ -291,6 +339,7 @@
           </ul>
         </div>
 
+        <!-- Cột 3: nghệ sĩ -->
         <div class="footer-col">
           <h3>Nghệ sĩ</h3>
           <ul>
@@ -301,6 +350,7 @@
           </ul>
         </div>
 
+        <!-- Cột 4: công ty -->
         <div class="footer-col">
           <h3>Công ty</h3>
           <ul>
@@ -312,6 +362,7 @@
         </div>
       </div>
 
+      <!-- Dòng cuối: bản quyền, tác giả, MSSV -->
       <div class="footer-bottom">
         <span>© <span data-current-year>2026</span> SoundWave. Thiết kế bởi <strong>Đinh Nhật Phong</strong> · MSSV <strong>ID1736755</strong>.</span>
         <span>Made with <span class="heart">♥</span> for independent music.</span>
@@ -319,9 +370,18 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       PLAYER NHẠC CỐ ĐỊNH (position: fixed)
+       - Bên trái: ảnh bìa, tên bài, ca sĩ, nút yêu thích
+       - Ở giữa: nút bài trước, play/pause, bài tiếp theo, thanh tua
+       - Bên phải: equalizer, danh sách phát, âm lượng
+       - Thẻ <audio> bị ẩn bằng CSS nhưng phát nhạc thật
+       ============================================================ -->
   <div class="player" id="player" aria-label="Trình phát nhạc SoundWave">
+    <!-- Thẻ audio thật: JS đổi src khi chọn bài -->
     <audio id="audioEl" preload="metadata"></audio>
     <div class="container player-inner">
+      <!-- Thông tin bài đang phát -->
       <div class="player-track">
         <img class="player-cover" src="images/cover-1.jpg" alt="Ảnh bìa Out of the Mountain" width="52" height="52">
         <div class="player-meta">
@@ -331,6 +391,7 @@
         <button class="icon-btn" id="likeBtn" type="button" aria-label="Yêu thích bài hát" aria-pressed="false">♡</button>
       </div>
 
+      <!-- Nút điều khiển và thanh tiến trình -->
       <div class="player-center">
         <div class="player-controls">
           <button class="p-btn" type="button" data-skip="-1" aria-label="Bài trước">⏮</button>
@@ -344,6 +405,7 @@
         </div>
       </div>
 
+      <!-- Âm lượng, equalizer, nút danh sách phát -->
       <div class="player-extra">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <button class="icon-btn" type="button" aria-label="Danh sách phát">☰</button>
@@ -353,6 +415,7 @@
     </div>
   </div>
 
+  <!-- ===== JAVASCRIPT: menu mobile, player, search, form, pricing... ===== -->
   <script src="js/main.js?v=20261103"></script>
 </body>
 </html>
